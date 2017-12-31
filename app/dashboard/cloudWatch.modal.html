@@ -1,0 +1,50 @@
+<!-- 
+	Brenda-Web -- Frontend for Blender
+	Copyright (C) 2016 Nakul Jeirath
+	
+	Brenda-Web is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+-->
+<div class="modal-header">
+    <h3 class="modal-title">CloudWatch Logs</h3>
+</div>
+<div class="modal-body">
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<h3 class="panel-title pull-left">CloudWatch</h3>
+			<div class="pull-right"><a href brenda-help="dashboard/help/cloudWatch.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></div>
+		</div>
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-condensed table-striped">
+					<thead>
+						<tr>
+							<th>Timestamp</th>
+							<th>Message</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="logEvent in logEvents | orderBy : 'timestamp' : true">
+							<td>{{logEvent.timestamp  | date:'mediumTime'}}</td>
+							<td>{{logEvent.message}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>Status: {{status}}</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Done</button>
+</div>

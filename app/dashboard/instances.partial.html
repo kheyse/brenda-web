@@ -54,6 +54,8 @@
 						<th>Destination Bucket</th>
 						
 						<th>Terminate</th>
+						<th>Logs</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -78,6 +80,8 @@
 						<td>{{instance.destinationBucket}}</td>
 						
 						<td class="text-center" ng-click="terminate(instance)"><button class="btn btn-danger btn-xs" ng-show="instance.instanceStatus == 'running'"><span class="glyphicon glyphicon-remove" aria-hide="true"></span></button></td>
+						
+						<td class="text-center" ng-click="viewLogs(instance)"><button class="btn btn-default btn-xs">View Log</span></button></td>
 					</tr>
 				</tbody>
 			</table>

@@ -441,6 +441,14 @@ angular.module('awsSetup')
 		terminateInstance: function(instanceId) {
 			var ec2 = new aws.EC2();
 			return deferredWrapper(ec2, ec2.terminateInstances, {InstanceIds: [instanceId]});
+		},
+		getCloudWatchLogEvents: function(logStreamName) {
+			var cloudwatchlogs = new aws.CloudWatchLogs({apiVersion: '2014-03-28'});		
+			return deferredWrapper(cloudwatchlogs, cloudwatchlogs.getLogEvents, 
+				{
+					logGroupName: "Brenda",
+					logStreamName: logStreamName
+				});
 		}
 	};
 	

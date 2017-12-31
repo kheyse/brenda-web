@@ -216,6 +216,20 @@ angular.module('dashboard')
 			});
 		});
 	};
+
+	$scope.viewLogs = function(instance) {
+		$uibModal.open({
+			animation: true,
+			templateUrl: 'dashboard/cloudWatch.modal.html',
+			size: 'lg',
+			controller: 'CloudWatchCtrl',
+			resolve: {
+				instance: function() {
+					return instance;
+				}
+			}
+		});
+	};
 	
 	$scope.updateTable();
 	
