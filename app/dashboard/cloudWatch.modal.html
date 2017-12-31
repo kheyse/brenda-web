@@ -16,34 +16,26 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>. 
 -->
 <div class="modal-header">
-    <h3 class="modal-title">CloudWatch Logs</h3>
+    <h3 class="modal-title">CloudWatch Log</h3>
 </div>
 <div class="modal-body">
-	<div class="panel panel-default">
-		<div class="panel-heading clearfix">
-			<h3 class="panel-title pull-left">CloudWatch</h3>
-			<div class="pull-right"><a href brenda-help="dashboard/help/cloudWatch.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></div>
-		</div>
-		<div class="panel-body">
-			<div class="table-responsive">
-				<table class="table table-condensed table-striped">
-					<thead>
-						<tr>
-							<th>Timestamp</th>
-							<th>Message</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="logEvent in logEvents | orderBy : 'timestamp' : true">
-							<td>{{logEvent.timestamp  | date:'mediumTime'}}</td>
-							<td>{{logEvent.message}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div>Status: {{status}}</div>
-		</div>
+	<div class="table-responsive">
+		<table class="table table-condensed table-striped">
+			<thead>
+				<tr>
+					<th>Timestamp</th>
+					<th>Message</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="logEvent in logEvents | orderBy : 'timestamp' : true">
+					<td>{{logEvent.timestamp  | date:'mediumTime'}}</td>
+					<td>{{logEvent.message}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+	<div>Status: {{status}}</div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="ok()">Done</button>

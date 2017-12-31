@@ -26,8 +26,7 @@ angular.module('dashboard')
 			$scope.status = "Loaded";
 		})
 		.catch(err => {
-			console.error(err);
-			$scope.status = "Error";
+			$scope.status = `Error: ${err.message}`;
 		});
 		$scope.status = "Loading";
 	}
